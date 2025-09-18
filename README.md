@@ -1,12 +1,8 @@
-# React + Vite
+# Component Corner
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains exemplar solutions to the ComponentCorner website that students will create in COMPS X: Application Development II: Frontend in Assignments 2, 3, 4, and 5. The solutions can be found on the following branches:
+- `main`: Solutions to Assignments 2 and 3
+- `assignment-4`: Solutions to Assignment 4
+- `assignment-5`: Solutions to Assignment 5
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+These are just one example of many possible implementations of the assignment brief, so they should not be used as the "only" correct answer. Rather, they are a useful jumping off point to understand the type of work a top student should be submitting.

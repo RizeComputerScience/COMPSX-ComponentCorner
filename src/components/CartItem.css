@@ -1,0 +1,35 @@
+/* CartItem.css */
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  background: white;
+}
+
+.cart-item-info h4 {
+  margin: 0 0 4px 0;
+  font-size: 16px;
+}
+
+.cart-item-info p {
+  margin: 0;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+.remove-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  background: #dc2626;
+}

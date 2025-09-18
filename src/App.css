@@ -1,0 +1,43 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+#root {
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+/* Add to App.css */
+.cart-section {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.cart-section h2 {
+  margin-bottom: 20px;
+  color: #1f2937;
+}
+
+.empty-cart {
+  text-align: center;
+  color: #6b7280;
+  padding: 40px;
+  background: #f3f4f6;
+  border-radius: 8px;
+}
+
+.cart-total {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 2px solid #e5e7eb;
+  text-align: right;
+}
+
+.cart-total h3 {
+  color: #1f2937;
+  font-size: 20px;
+}

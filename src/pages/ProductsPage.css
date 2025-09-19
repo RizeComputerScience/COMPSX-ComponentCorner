@@ -1,0 +1,35 @@
+/* Grid for products: 3 cards per row on wider screens */
+.products-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: stretch;
+  max-width: 1200px;
+  margin: 16px auto;
+  padding: 0 16px;
+}
+
+.products-container .product-card {
+  /* ensure cards behave like columns: 3 per row */
+  flex: 1 1 calc(33.333% - 20px);
+  max-width: calc(33.333% - 20px);
+  box-sizing: border-box;
+  /* product-card may have its own margin; remove it here so cards fit 3-per-row
+     and spacing is handled by the container's gap */
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .products-container .product-card {
+    flex: 1 1 calc(50% - 20px);
+    max-width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 600px) {
+  .products-container .product-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}

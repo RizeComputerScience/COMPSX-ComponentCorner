@@ -1,21 +1,27 @@
 import './App.css'
-import ProductCard from './components/ProductCard'
 import Header from './components/Header';
-import Hero from './components/Hero';
 import Footer from './components/Footer';
-import CartItem from './components/CartItem';
-import { useState } from 'react';
+import { useState, useEffect, use } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/Hompage';
+import ProductsPage from './pages/ProductsPage';
+import CartPage from './pages/CartPage';
 
 function App() {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(() => {
+    const savedCart = localStorage.getItem('cart');
+    return savedCart ? JSON.parse(savedCart) : [];
+  })
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }, [cart]);
 
   const addToCart = (product) => {
     setCart([...cart, product]);
-    console.log(cart)
   };
 
   const removeFromCart = (productId) => {
-    
     setCart(cart.filter(item => item.id !== productId));
   };
 
@@ -65,60 +71,23 @@ function App() {
   ];
 
   return (
-    <>
+    <BrowserRouter>
       <Header 
         storeName="ComponentCorner" 
         cartCount={cart.length}
       />
-      <Hero 
-        title="Welcome to ComponentCorner"
-        subtitle="Discover amazing products built with React components"
-        backgroundImage="https://placehold.co/1200x400/667eea/ffffff"
-        buttonText="Shop Now"
-      />
-      <main className="products-section">
-        <h2>Featured Products</h2>
-        <div className="products-container">
-          {products.map(product => (
-            <ProductCard 
-              key={product.id}
-              name = {product.name}
-              price = {product.price}
-              image={product.image}
-              description={product.description}
-              onAddToCart={() => addToCart(product)}
-            />
-          ))}
-        </div>
-        <section className="cart-section">
-          <h2>Shopping Cart</h2>
-          {cart.length === 0 ? (
-            <p className="empty-cart">Your cart is empty</p>
-          ) : (
-            <>
-              <div className="cart-items">
-                {cart.map((item, index) => (
-                  <CartItem 
-                    key={`${item.id}-${index}`}  // Using index too since items can repeat
-                    item={item}
-                    onRemove={removeFromCart}
-                  />
-                ))}
-              </div>
-              <div className="cart-total">
-                <h3>Total: ${cart.reduce((sum, item) => sum + item.price, 0).toFixed(2)}</h3>
-              </div>
-            </>
-          )}
-        </section>
-      </main>
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/products' element={<ProductsPage products={products} addToCart={addToCart} />} />
+        <Route path='/cart' element={<CartPage cart={cart} removeFromCart={removeFromCart} />} />
+      </Routes>
       <Footer 
         storeName="ComponentCorner"
         email="hello@componentcorner.com"
         phone="(555) 123-4567"
         address="123 React Street, Component City, RC 12345"
       />
-    </>
+    </BrowserRouter>
   )
 }
 

@@ -3,9 +3,10 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import { useState, useEffect, use } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import HomePage from './pages/Hompage';
+import HomePage from './pages/Homepage';
 import ProductsPage from './pages/ProductsPage';
 import CartPage from './pages/CartPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
   const [cart, setCart] = useState(() => {
@@ -80,6 +81,7 @@ function App() {
         <Route path='/' element={<HomePage />} />
         <Route path='/products' element={<ProductsPage products={products} addToCart={addToCart} />} />
         <Route path='/cart' element={<CartPage cart={cart} removeFromCart={removeFromCart} />} />
+        <Route path='*' element={<NotFoundPage />} />
       </Routes>
       <Footer 
         storeName="ComponentCorner"
